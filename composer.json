@@ -1,9 +1,11 @@
 {
     "name": "naif/mailchimp-tool",
-    "description": "A Laravel Nova tool.",
+    "description": "A Laravel Nova tool that integrate with MailChimp to add/edit subscribe and send email messages.",
     "keywords": [
         "laravel",
-        "nova"
+        "nova",
+        "MailChimp",
+        "tool"
     ],
     "license": "MIT",
     "require": {
