@@ -6,6 +6,7 @@
                 Subscribers: <span id="member_count">0</span> | UnSubscribers: <span id="unsubscribe_count">0</span>
             </div>
         </div>
+        <br>
         <div style="color:green;">Add Subscriber</div>
         <br>
         <card class="flex-col items-center justify-center" style="min-height: 200px;">
@@ -77,9 +78,29 @@
                 <button class="ml-auto btn btn-default btn-primary mr-3" @click="sendEmail">Send Email</button>
             </div>
         </card>
-
-
-        <!-- Delete !-->
+        <br>
+        <div>Latest 10 Subscribers</div>
+        <br>
+        <div align="center">
+            <card class="flex-col items-center justify-center" style="min-height: 200px;">
+                <br>
+                <table class="table">
+                    <tr>
+                        <th>Email Address</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                    </tr>
+                    <tr v-for="subscriber in subscribers">
+                        <td>{{subscriber.email_address}}</td>
+                        <td>
+                            {{formatDate(subscriber.timestamp_opt)}}
+                        </td>
+                        <td>{{subscriber.status}}</td>
+                    </tr>
+                </table>
+                <br>
+            </card>
+        </div>
     </div>
 </template>
 
@@ -98,17 +119,23 @@ export default {
             body: "",
             tinyOptions: {
                 'height': 400
-            }
+            },
+            subscribers: []
         }
     },
     mounted() {
-        Nova.request().get('/nova-vendor/mailchimp-tool/subscribers')
+        Nova.request().get('/nova-vendor/mailchimp-tool/subscribers_count')
             .then(response => {
                 var member_count = response.data.stats.member_count;
                 var campaign_count = response.data.stats.campaign_count;
                 var unsubscribe_count = response.data.stats.unsubscribe_count;
                 document.getElementById('member_count').innerHTML = member_count;
                 document.getElementById('unsubscribe_count').innerHTML = unsubscribe_count;
+        });
+
+        Nova.request().get('/nova-vendor/mailchimp-tool/subscribers')
+            .then(response => {
+               this.subscribers = response.data;
         });
     },
     methods: {
@@ -188,6 +215,10 @@ export default {
             } else{
                 email_field.style.border="";
             }
+        },
+        formatDate: function (datetime) {
+            var dateobj = new Date(datetime);
+            return dateobj.getFullYear() +'-'+ String("00" + dateobj.getMonth()).slice(-2) +'-'+ dateobj.getDate();
         }
     },
 }

@@ -20,4 +20,5 @@ use Illuminate\Support\Facades\Route;
 Route::post('/add', 'Naif\MailchimpTool\Http\Controllers\MailChimpController@add');
 Route::post('/send', 'Naif\MailchimpTool\Http\Controllers\MailChimpController@send');
 Route::post('/delete', 'Naif\MailchimpTool\Http\Controllers\MailChimpController@delete');
+Route::get('/subscribers_count', 'Naif\MailchimpTool\Http\Controllers\MailChimpController@subscribersCount');
 Route::get('/subscribers', 'Naif\MailchimpTool\Http\Controllers\MailChimpController@subscribers');

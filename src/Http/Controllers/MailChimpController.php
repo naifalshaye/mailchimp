@@ -18,10 +18,24 @@ class MailChimpController
         $this->templeate_id = env('NOVA_MAILCHIMP_TEMPLATE_ID');
     }
 
-    public function subscribers()
+    public function subscribersCount()
     {
         $result = $this->MailChimp->get("lists/$this->list_id");
         return $result;
+    }
+
+    public function subscribers()
+    {
+        $info = $this->MailChimp->get("lists/$this->list_id");
+        $member_count = $info['stats']['member_count'];
+        $offset = ($member_count - 9);
+
+        $result = $this->MailChimp->get("lists/$this->list_id/members",[
+            'offset' => $offset,
+            'count'  => 15,
+        ]);
+        $subscribers = array_reverse($result['members']);
+        return $subscribers;
     }
 
     public function add(Request $request)
