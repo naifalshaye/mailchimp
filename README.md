@@ -47,9 +47,7 @@ NOVA_MAILCHIMP_FROM_EMAIL=email@email.com
 ```
 ## Screenshots
 
-<img src="https://github.com/naifalshaye/mailchimp/blob/master/screenshots/image1.png" width="900">
-
-<img src="https://raw.githubusercontent.com/naifalshaye/mailchimp/master/screenshots/image2.png" width="900">
+<img src="https://raw.githubusercontent.com/naifalshaye/mailchimp/master/screenshots/logo.png" width="900">
 
 There is an issue with the tinymce editor Vue package icons are not showing probably.
 <img src="https://raw.githubusercontent.com/naifalshaye/mailchimp/master/screenshots/image3.png" width="700">
