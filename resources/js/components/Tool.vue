@@ -1,6 +1,6 @@
 <template>
     <div>
-        <heading class="mb-6">MailChimp Tool</heading>
+        <heading class="mb-6"><img src="https://developer.mailchimp.com/img/freddie_wink.svg"> MailChimp Tool</heading>
         <div>
             <div align="center">
                 Subscribers: <span id="member_count">0</span> | UnSubscribers: <span id="unsubscribe_count">0</span>

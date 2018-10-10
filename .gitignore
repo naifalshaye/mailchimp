@@ -2,6 +2,7 @@
 /vendor
 /node_modules
 /screenshots
+/images
 package-lock.json
 composer.phar
 composer.lock
