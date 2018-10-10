@@ -2,10 +2,14 @@
 
 A Laravel Nova tool that integrate with MailChimp to:
 
-- Number of subscribers and unsubscribers in a list.
+- Number of subscribers and unsubscribers.
+- Latest 10 Subscribers list
 - Add Subscriber to a list
 - Remove Subscriber from a list
 - Create Campaign (Send Email Message)
+- Rich Text Editor
+- Accept HTML
+- Embedded Images/Videos and links.
 
 ## Installation:
 
